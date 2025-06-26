@@ -10,9 +10,9 @@
 <body>
     <div class="main-container">
         <div class="header">
-            <h1>Portfólio 1º Ano</h1>
-            <div class="info">Professor: <strong>Jhonny Ocampo</strong></div>
-            <div class="info">Curso: <strong>Informática de Programação</strong></div>
+            <h1><span class="typewriter-flash" data-text="Portfólio 1º Ano"></span></h1>
+            <div class="info"><span class="typewriter-flash" data-text="Professor: Jhonny Ocampo"></span></div>
+            <div class="info"><span class="typewriter-flash" data-text="Curso: Informática de Programação"></span></div>
         </div>
         <header class="custom-header">
             <div class="header-content">
@@ -23,7 +23,7 @@
                     <img src="https://avatars.githubusercontent.com/u/186153287?v=4" alt="Avatar do autor">
                 </div>
                 <div class="profile-info" style="display: flex; align-items: center; gap: 18px;">
-                    <div class="profile-name">Geraldo Sense</div>
+                    <div class="profile-name"><span class="typewriter-flash" data-text="Geraldo Sense"></span></div>
                     <div class="profile-description">
                     </div>
                 </div>
@@ -35,8 +35,8 @@
                 <a class="card-link" href="https://brasilescola.uol.com.br/informatica/arquitetura-computadores.htm" target="_blank">Ver noções básicas</a>
             </div>
             <div class="card">
-                <div class="card-title">Módulo 2: Dispositivos e periféricos</div>
-                <a class="card-link" href="https://www.infoescola.com/informatica/dispositivos-de-entrada-e-saida/" target="_blank">Ver noções básicas</a>
+                <div class="card-title">Módulo 2: Periféricos</div>
+                <a class="card-link" href="https://periferico.vercel.app/" target="_blank">Ver noções básicas</a>
             </div>
             <div class="card">
                 <div class="card-title">Módulo 3: Sistemas operativos - tipologias</div>
@@ -44,10 +44,10 @@
             </div>
             <div class="card">
                 <div class="card-title">Módulo 4: Utilitários</div>
-                <a class="card-link" href="https://www.todamateria.com.br/programas-utilitarios/" target="_blank">Ver noções básicas</a>
+                <a class="card-link" href="https://utilit-rios.vercel.app/" target="_blank">Ver noções básicas</a>
             </div>
             <div class="card">
-                <div class="card-title">Módulo 5: Programação em C/C++ - fundamentos</div>
+                <div class="card-title">Módulo 5: C/C++</div>
                 <a class="card-link" href="https://www.w3schools.com/cpp/default.asp" target="_blank">Ver noções básicas</a>
             </div>
             <div class="card">
@@ -67,7 +67,7 @@
                 <a class="card-link" href="https://pt.wikipedia.org/wiki/An%C3%A1lise_de_sistemas" target="_blank">Ver noções básicas</a>
             </div>
             <div class="card">
-                <div class="card-title">Módulo 10: Fundamentos da linguagem SQL</div>
+                <div class="card-title">Módulo 10: SQL</div>
                 <a class="card-link" href="https://www.w3schools.com/sql/" target="_blank">Ver noções básicas</a>
             </div>
             <div class="card">
@@ -159,6 +159,33 @@
         btn.textContent = 'Ver noções básicas';
       }
     }
+    </script>
+
+    <script>
+    function typewriterFlashEffect(element, text, speed = 55, flashColor = '#00fff7') {
+        let i = 0;
+        function type() {
+            if (i <= text.length) {
+                element.innerHTML =
+                    '<span style="text-shadow: 0 0 12px ' + flashColor + ', 0 0 24px ' + flashColor + ';">' +
+                    text.substring(0, i) +
+                    (i < text.length ? '<span class="type-cursor">|</span>' : '') +
+                    '</span>';
+                i++;
+                setTimeout(type, speed + Math.random() * 60);
+            } else {
+                element.innerHTML = text;
+            }
+        }
+        type();
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.typewriter-flash').forEach(function(el, idx) {
+            setTimeout(function() {
+                typewriterFlashEffect(el, el.getAttribute('data-text'));
+            }, idx * 900);
+        });
+    });
     </script>
 </body>
 </html>
