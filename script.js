@@ -20,4 +20,8 @@ window.addEventListener('DOMContentLoaded', function() {
             btn.style.boxShadow = '';
         });
     });
-}); 
+});
+
+function voltarAoInicio() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
